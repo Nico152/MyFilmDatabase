@@ -8,11 +8,18 @@ import java.util.Random;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
 
 public class MainActivity extends ListActivity {
     private FilmData filmData;
+
+    private ArrayAdapter<Film> adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,8 +28,6 @@ public class MainActivity extends ListActivity {
 
         filmData = new FilmData(this);
         filmData.open();
-
-        initializeDatabase();
 
         List<Film> values = filmData.getAllFilms();
         Comparator<Film> cmp = new Comparator<Film>() {
@@ -35,11 +40,11 @@ public class MainActivity extends ListActivity {
 
         // use the SimpleCursorAdapter to show the
         // elements in a ListView
-        ArrayAdapter<Film> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, values);
+       // lv = (ListView) findViewById(android.R.id.list);
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
         setListAdapter(adapter);
     }
-
     // Will be called via the onClick attribute
     // of the buttons in main.xml
     /*public void onClick(View view) {
@@ -64,13 +69,6 @@ public class MainActivity extends ListActivity {
         }
         adapter.notifyDataSetChanged();
     }*/
-
-    public void initializeDatabase(){
-        filmData.createFilm("Blade Runner","Ridley Scott");
-        filmData.createFilm("Rocky Horror Picture Show","Jim Sharman");
-        filmData.createFilm("The Godfather","Francis Ford Coppola");
-        filmData.createFilm("Toy Story", "John Lasseter");
-    }
 
     @Override
     protected void onResume() {

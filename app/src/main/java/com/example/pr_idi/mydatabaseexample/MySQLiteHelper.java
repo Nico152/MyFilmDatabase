@@ -4,6 +4,7 @@ package com.example.pr_idi.mydatabaseexample;
  * MySQLiteHelper
  * Created by pr_idi on 10/11/16.
  */
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -41,6 +42,38 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
         database.execSQL(DATABASE_CREATE);
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TITLE, "Toy Story");
+        values.put(COLUMN_DIRECTOR, "John Lasseter");
+        values.put(COLUMN_COUNTRY, "USA");
+        values.put(COLUMN_YEAR_RELEASE, 1995);
+        values.put(COLUMN_PROTAGONIST, "Tom Hanks");
+        values.put(COLUMN_CRITICS_RATE, 8);
+        database.insert(TABLE_FILMS, null, values);
+        values = new ContentValues();
+        values.put(COLUMN_TITLE, "Blade Runner");
+        values.put(COLUMN_DIRECTOR, "Ridley Scott");
+        values.put(COLUMN_COUNTRY, "USA");
+        values.put(COLUMN_YEAR_RELEASE, 1982);
+        values.put(COLUMN_PROTAGONIST, "Harrison Ford");
+        values.put(COLUMN_CRITICS_RATE, 8);
+        database.insert(TABLE_FILMS, null, values);
+        values = new ContentValues();
+        values.put(COLUMN_TITLE, "Rocky Horror Picture Show");
+        values.put(COLUMN_DIRECTOR, "Jim Sharman");
+        values.put(COLUMN_COUNTRY, "United Kingdom");
+        values.put(COLUMN_YEAR_RELEASE, 1975);
+        values.put(COLUMN_PROTAGONIST, "Susan Sarandon");
+        values.put(COLUMN_CRITICS_RATE, 7);
+        database.insert(TABLE_FILMS, null, values);
+        values = new ContentValues();
+        values.put(COLUMN_TITLE, "The Godfather");
+        values.put(COLUMN_DIRECTOR, "Francis Ford Coppola");
+        values.put(COLUMN_COUNTRY, "USA");
+        values.put(COLUMN_YEAR_RELEASE, 1972);
+        values.put(COLUMN_PROTAGONIST, "Marlon Brando");
+        values.put(COLUMN_CRITICS_RATE, 9);
+        database.insert(TABLE_FILMS, null, values);
     }
 
     @Override
