@@ -1,6 +1,8 @@
 package com.example.pr_idi.mydatabaseexample;
 
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
@@ -20,7 +22,16 @@ public class MainActivity extends ListActivity {
         filmData = new FilmData(this);
         filmData.open();
 
+        initializeDatabase();
+
         List<Film> values = filmData.getAllFilms();
+        Comparator<Film> cmp = new Comparator<Film>() {
+            @Override
+            public int compare(Film lhs, Film rhs) {
+                return lhs.getTitle().compareTo(rhs.getTitle());
+            }
+        };
+        Collections.sort(values,cmp);  //Ara tenim les pelicules ordenades per titol
 
         // use the SimpleCursorAdapter to show the
         // elements in a ListView
@@ -31,7 +42,7 @@ public class MainActivity extends ListActivity {
 
     // Will be called via the onClick attribute
     // of the buttons in main.xml
-    public void onClick(View view) {
+    /*public void onClick(View view) {
         @SuppressWarnings("unchecked")
         ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) getListAdapter();
         Film film;
@@ -52,6 +63,13 @@ public class MainActivity extends ListActivity {
                 break;
         }
         adapter.notifyDataSetChanged();
+    }*/
+
+    public void initializeDatabase(){
+        filmData.createFilm("Blade Runner","Ridley Scott");
+        filmData.createFilm("Rocky Horror Picture Show","Jim Sharman");
+        filmData.createFilm("The Godfather","Francis Ford Coppola");
+        filmData.createFilm("Toy Story", "John Lasseter");
     }
 
     @Override
