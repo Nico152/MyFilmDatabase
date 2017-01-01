@@ -6,14 +6,18 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
+import android.app.Activity;
 import android.app.ListActivity;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class MainActivity extends ListActivity {
@@ -40,10 +44,15 @@ public class MainActivity extends ListActivity {
 
         // use the SimpleCursorAdapter to show the
         // elements in a ListView
-       // lv = (ListView) findViewById(android.R.id.list);
+
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
         setListAdapter(adapter);
+
+        ListView drawerList = (ListView) findViewById(R.id.nav_view);
+        String[] strings = {"Action1","Action2"};
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this,R.layout.drawer_list_item,strings);
+        drawerList.setAdapter(adapter1);
     }
     // Will be called via the onClick attribute
     // of the buttons in main.xml
