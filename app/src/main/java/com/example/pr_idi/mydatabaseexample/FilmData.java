@@ -99,7 +99,6 @@ public class FilmData {
     }
 
     private Film cursorToFilm(Cursor cursor) {
-        Log.d("TAmany columnes", "El cursor te aquest tamany " + cursor.getColumnCount());
         Film film = new Film();
         film.setId(cursor.getLong(0));
         film.setTitle(cursor.getString(1));

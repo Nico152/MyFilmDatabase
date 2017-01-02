@@ -14,7 +14,7 @@
             />
     </RelativeLayout>
 
-    <ListView
+    <FrameLayout
         android:id="@+id/nav_view"
         android:layout_width="210dp"
         android:layout_height="match_parent"
@@ -22,6 +22,14 @@
         android:layout_gravity= "start"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        />
+        android:dividerHeight="10dp">
+        <Button
+            android:id="@+id/button"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:maxHeight="20dp"
+            android:text="@string/label_button_search_prota"
+            />
+
+        </FrameLayout>
 </android.support.v4.widget.DrawerLayout>
