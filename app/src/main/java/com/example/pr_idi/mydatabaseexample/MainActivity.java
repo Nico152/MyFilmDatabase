@@ -53,6 +53,20 @@ public class MainActivity extends ListActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
         setListAdapter(adapter);
 
+        ListView listView = getListView();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Film film = adapter.getItem(position);
+                Intent intent = new Intent(MainActivity.this,ModifyFilmRate.class);
+                intent.putExtra("FILM_ID",film.getId());
+                intent.putExtra("FILM_TITLE",film.getTitle());
+                intent.putExtra("FILM_RATE",film.getCritics_rate());
+                startActivity(intent);
+
+            }
+        });
+
         (findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,12 +74,6 @@ public class MainActivity extends ListActivity {
                 startActivity(intent);
             }
         });
-        /*ListView drawerList = (ListView) findViewById(R.id.nav_view);
-        String[] strings = {"Action1","Action2"};
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this,R.layout.drawer_list_item,strings);
-        drawerList.setAdapter(adapter1);
-
-        drawerList.setOnItemClickListener(new DrawerItemClickListener());*/
     }
     // Will be called via the onClick attribute
     // of the buttons in main.xml
