@@ -27,7 +27,7 @@ public class MainActivity extends ListActivity {
     private FilmData filmData;
 
     private ArrayAdapter<Film> adapter;
-
+    List<Film> values;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,21 +37,7 @@ public class MainActivity extends ListActivity {
         filmData = new FilmData(this);
         filmData.open();
 
-        List<Film> values = filmData.getAllFilms();
-        Comparator<Film> cmp = new Comparator<Film>() {
-            @Override
-            public int compare(Film lhs, Film rhs) {
-                return lhs.getTitle().compareTo(rhs.getTitle());
-            }
-        };
-        Collections.sort(values,cmp);  //Ara tenim les pelicules ordenades per titol
-
-        // use the SimpleCursorAdapter to show the
-        // elements in a ListView
-
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
-        setListAdapter(adapter);
+        getData(); //Ara tenim les pelicules ordenades per titol
 
         ListView listView = getListView();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -103,6 +89,7 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onResume() {
         filmData.open();
+        getData();
         super.onResume();
     }
 
@@ -110,6 +97,19 @@ public class MainActivity extends ListActivity {
     protected void onPause() {
         filmData.close();
         super.onPause();
+    }
+
+    public void getData(){
+        values = filmData.getAllFilms();
+        Comparator<Film> cmp = new Comparator<Film>() {
+            @Override
+            public int compare(Film lhs, Film rhs) {
+                return lhs.getTitle().compareTo(rhs.getTitle());
+            }
+        };
+        Collections.sort(values,cmp);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
+        setListAdapter(adapter);
     }
 
     /*private class DrawerItemClickListener implements ListView.OnItemClickListener {

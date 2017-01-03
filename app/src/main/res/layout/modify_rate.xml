@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
         android:text="TextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/board" />
+        android:id="@+id/board"
+        android:layout_marginBottom="37dp"
+        android:layout_above="@+id/editText2"
+        android:textSize="25dp"
+        android:textAlignment="center"/>
+
+    <Button
+        android:text="Change rate!"
+        android:layout_width="172dp"
+        android:layout_height="58dp"
+        android:id="@+id/button2"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:onClick="OnClick"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="107dp" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText2"
         android:layout_row="1"
-        android:layout_column="0" />
+        android:layout_column="0"
+        android:layout_marginBottom="48dp"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"/>
 
     <TextView
         android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_width="90dp"
+        android:layout_height="37dp"
         android:id="@+id/textView2"
         android:layout_row="2"
-        android:layout_column="0" />
-
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button2"
-        android:layout_row="27"
-        android:layout_column="1" />
-</GridLayout>
+        android:layout_column="0"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/board"
+        android:layout_alignStart="@+id/board" />
+</RelativeLayout>

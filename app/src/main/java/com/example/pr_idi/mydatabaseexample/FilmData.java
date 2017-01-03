@@ -98,6 +98,19 @@ public class FilmData {
         return comments;
     }
 
+    public void changeFilmrate(long id, int newrate) {
+        String sql = "UPDATE " + MySQLiteHelper.TABLE_FILMS
+                + " SET " + MySQLiteHelper.COLUMN_CRITICS_RATE + "= ?"
+                + " WHERE " + MySQLiteHelper.COLUMN_ID + "= ?;";
+        String[] args = new String[]{Integer.toString(newrate), Long.toString(id)};
+        //Cursor cursor = database.rawQuery(sql, args);
+
+        ContentValues cv = new ContentValues();
+        cv.put(MySQLiteHelper.COLUMN_CRITICS_RATE,newrate);
+        database.update(MySQLiteHelper.TABLE_FILMS,cv,MySQLiteHelper.COLUMN_ID + "="+id,null);
+    }
+
+
     private Film cursorToFilm(Cursor cursor) {
         Film film = new Film();
         film.setId(cursor.getLong(0));
