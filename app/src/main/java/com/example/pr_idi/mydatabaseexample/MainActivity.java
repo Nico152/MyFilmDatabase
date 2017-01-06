@@ -1,16 +1,33 @@
 package com.example.pr_idi.mydatabaseexample;
 
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
+import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class MainActivity extends ListActivity {
     private FilmData filmData;
+
+    private ArrayAdapter<Film> adapter;
+    List<Film> values;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -20,18 +37,59 @@ public class MainActivity extends ListActivity {
         filmData = new FilmData(this);
         filmData.open();
 
-        List<Film> values = filmData.getAllFilms();
+        getData(); //Ara tenim les pelicules ordenades per titol
 
-        // use the SimpleCursorAdapter to show the
-        // elements in a ListView
-        ArrayAdapter<Film> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, values);
-        setListAdapter(adapter);
+        ListView listView = getListView();
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Film film = adapter.getItem(position);
+                Intent intent = new Intent(MainActivity.this,ModifyFilmRate.class);
+                intent.putExtra("FILM_ID",film.getId());
+                intent.putExtra("FILM_TITLE",film.getTitle());
+                intent.putExtra("FILM_RATE",film.getCritics_rate());
+                startActivity(intent);
+
+            }
+        });
+
+        //Buttons:
+
+        (findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainCercaProtagonist.class);
+                startActivity(intent);
+            }
+        });
+
+        (findViewById(R.id.button3)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LlistaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        (findViewById(R.id.button4)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        (findViewById(R.id.button5)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainCercaEsborraTitol.class);
+                startActivity(intent);
+            }
+        });
     }
-
     // Will be called via the onClick attribute
     // of the buttons in main.xml
-    public void onClick(View view) {
+    /*public void onClick(View view) {
         @SuppressWarnings("unchecked")
         ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) getListAdapter();
         Film film;
@@ -52,11 +110,12 @@ public class MainActivity extends ListActivity {
                 break;
         }
         adapter.notifyDataSetChanged();
-    }
+    }*/
 
     @Override
     protected void onResume() {
         filmData.open();
+        getData();
         super.onResume();
     }
 
@@ -66,4 +125,29 @@ public class MainActivity extends ListActivity {
         super.onPause();
     }
 
+    public void getData(){
+        values = filmData.getAllFilms();
+        Comparator<Film> cmp = new Comparator<Film>() {
+            @Override
+            public int compare(Film lhs, Film rhs) {
+                return lhs.getTitle().compareTo(rhs.getTitle());
+            }
+        };
+        Collections.sort(values,cmp);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
+        setListAdapter(adapter);
+    }
+
+    /*private class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            selectItem(position);
+        }
+    }
+    private void selectItem(int position){
+        if(position == 0){
+            Intent intent = new Intent(MainActivity.this, MainCercaProtagonist.class);
+            startActivity(intent);
+        }
+    }*/
 }

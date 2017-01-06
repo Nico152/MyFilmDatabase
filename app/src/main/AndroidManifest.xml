@@ -15,6 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddActivity"></activity>
+        <activity android:name=".LlistaActivity"></activity>
+        <activity android:name=".MainCercaProtagonist"></activity>
+        <activity android:name=".MainCercaEsborraTitol"></activity>
+        <activity android:name=".ModifyFilmRate"></activity>
+
     </application>
 
 </manifest>

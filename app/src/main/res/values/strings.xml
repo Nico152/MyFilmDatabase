@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MyDatabaseExample</string>
+    <string name="title_search_prota">SEARCH FILM BY PROTAGONIST</string>
+    <string name="title_search_delete_name">DELETE FILM BY NAME</string>
+    <string name="hint_search_prota">Enter name of protagonist</string>
+    <string name="hint_search_title">Enter film title</string>
+    <string name="label_button_search_prota">Search by Protagonist</string>
+    <string name="label_button_search_year">Show all (by Year)</string>
+    <string name="label_button_add_film">Add Film</string>
+    <string name="label_button_remove_film">Remove Film</string>
 </resources>
