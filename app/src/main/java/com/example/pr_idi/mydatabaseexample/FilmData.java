@@ -22,8 +22,8 @@ public class FilmData {
 
     // Here we only select Title and Director, must select the appropriate columns
     private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
-            MySQLiteHelper.COLUMN_TITLE, MySQLiteHelper.COLUMN_DIRECTOR, MySQLiteHelper.COLUMN_YEAR_RELEASE,
-            MySQLiteHelper.COLUMN_PROTAGONIST, MySQLiteHelper.COLUMN_CRITICS_RATE};
+            MySQLiteHelper.COLUMN_TITLE, MySQLiteHelper.COLUMN_DIRECTOR, MySQLiteHelper.COLUMN_COUNTRY,
+            MySQLiteHelper.COLUMN_YEAR_RELEASE, MySQLiteHelper.COLUMN_PROTAGONIST, MySQLiteHelper.COLUMN_CRITICS_RATE};
 
     public FilmData(Context context) {
         dbHelper = new MySQLiteHelper(context);
@@ -37,19 +37,21 @@ public class FilmData {
         dbHelper.close();
     }
 
-    public Film createFilm(String title, String director, String country, int year, String protagonist, int rate) {
+    public Film createFilm(String title, String director, String country, int year, String protagonist, int critics_rate) {
         ContentValues values = new ContentValues();
         Log.d("Creating", "Creating " + title + " " + director);
+
 
         // Add data: Note that this method only provides title and director
         // Must modify the method to add the full data
         values.put(MySQLiteHelper.COLUMN_TITLE, title);
         values.put(MySQLiteHelper.COLUMN_DIRECTOR, director);
 
+        // Invented data
         values.put(MySQLiteHelper.COLUMN_COUNTRY, country);
         values.put(MySQLiteHelper.COLUMN_YEAR_RELEASE, year);
         values.put(MySQLiteHelper.COLUMN_PROTAGONIST, protagonist);
-        values.put(MySQLiteHelper.COLUMN_CRITICS_RATE, rate);
+        values.put(MySQLiteHelper.COLUMN_CRITICS_RATE, critics_rate);
 
         // Actual insertion of the data using the values variable
         long insertId = database.insert(MySQLiteHelper.TABLE_FILMS, null,
@@ -98,6 +100,18 @@ public class FilmData {
         return comments;
     }
 
+    private Film cursorToFilm(Cursor cursor) {
+        Film film = new Film();
+        film.setId(cursor.getLong(0));
+        film.setTitle(cursor.getString(1));
+        film.setDirector(cursor.getString(2));
+        film.setCountry(cursor.getString(3));
+        film.setYear(cursor.getInt(4));
+        film.setProtagonist(cursor.getString(5));
+        film.setCritics_rate(cursor.getInt(6));
+        return film;
+    }
+
     public void changeFilmrate(long id, int newrate) {
         String sql = "UPDATE " + MySQLiteHelper.TABLE_FILMS
                 + " SET " + MySQLiteHelper.COLUMN_CRITICS_RATE + "= ?"
@@ -110,15 +124,4 @@ public class FilmData {
         database.update(MySQLiteHelper.TABLE_FILMS,cv,MySQLiteHelper.COLUMN_ID + "="+id,null);
     }
 
-
-    private Film cursorToFilm(Cursor cursor) {
-        Film film = new Film();
-        film.setId(cursor.getLong(0));
-        film.setTitle(cursor.getString(1));
-        film.setDirector(cursor.getString(2));
-        film.setYear(cursor.getInt(3));
-        film.setProtagonist(cursor.getString(4));
-        film.setCritics_rate(cursor.getInt(5));
-        return film;
-    }
 }

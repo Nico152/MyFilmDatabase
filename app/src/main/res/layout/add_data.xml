@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:fitsSystemWindows="false"
+        android:clipChildren="false">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/AddTitle"
+                android:layout_weight="1"
+                android:textAlignment="viewStart"
+                android:textStyle="normal|bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="12"
+                android:id="@+id/editTitle"
+                android:textAlignment="viewEnd"
+                android:singleLine="false"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Director"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/AddDirector"
+                android:layout_weight="1"
+                android:textAlignment="viewStart"
+                android:textStyle="normal|bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="12"
+                android:id="@+id/editDirector"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Country"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/AddCountry"
+                android:textAlignment="viewStart"
+                android:textStyle="normal|bold" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="12"
+                android:id="@+id/editCountry"
+                android:gravity="right" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Year"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/AddYear"
+                android:textAlignment="viewStart"
+                android:textStyle="normal|bold" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="12"
+                android:id="@+id/editYear"
+                android:singleLine="false"
+                android:selectAllOnFocus="false"
+                android:gravity="right" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Protagonist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/AddProtagonist"
+                android:textAlignment="viewStart"
+                android:textStyle="normal|bold" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="12"
+                android:id="@+id/editProtagonist"
+                android:contentDescription="Name of the protagonist" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:text="Critics Rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/AddRate"
+                android:textAlignment="viewStart"
+                android:textStyle="normal|bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="12"
+                android:id="@+id/editRate" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:text="Add film"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonAddFilm"
+        android:onClick="Enviar" />
+
+</LinearLayout>

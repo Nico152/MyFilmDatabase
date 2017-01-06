@@ -53,10 +53,36 @@ public class MainActivity extends ListActivity {
             }
         });
 
+        //Buttons:
+
         (findViewById(R.id.button)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainCercaProtagonist.class);
+                startActivity(intent);
+            }
+        });
+
+        (findViewById(R.id.button3)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LlistaActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        (findViewById(R.id.button4)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        (findViewById(R.id.button5)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainCercaEsborraTitol.class);
                 startActivity(intent);
             }
         });
@@ -118,7 +144,6 @@ public class MainActivity extends ListActivity {
             selectItem(position);
         }
     }
-
     private void selectItem(int position){
         if(position == 0){
             Intent intent = new Intent(MainActivity.this, MainCercaProtagonist.class);
