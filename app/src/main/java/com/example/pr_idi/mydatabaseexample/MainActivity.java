@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
 
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.database.DataSetObserver;
@@ -86,6 +86,12 @@ public class MainActivity extends ListActivity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
     // Will be called via the onClick attribute
     // of the buttons in main.xml
@@ -138,16 +144,4 @@ public class MainActivity extends ListActivity {
         setListAdapter(adapter);
     }
 
-    /*private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
-        }
-    }
-    private void selectItem(int position){
-        if(position == 0){
-            Intent intent = new Intent(MainActivity.this, MainCercaProtagonist.class);
-            startActivity(intent);
-        }
-    }*/
 }

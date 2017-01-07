@@ -113,11 +113,6 @@ public class FilmData {
     }
 
     public void changeFilmrate(long id, int newrate) {
-        String sql = "UPDATE " + MySQLiteHelper.TABLE_FILMS
-                + " SET " + MySQLiteHelper.COLUMN_CRITICS_RATE + "= ?"
-                + " WHERE " + MySQLiteHelper.COLUMN_ID + "= ?;";
-        String[] args = new String[]{Integer.toString(newrate), Long.toString(id)};
-        //Cursor cursor = database.rawQuery(sql, args);
 
         ContentValues cv = new ContentValues();
         cv.put(MySQLiteHelper.COLUMN_CRITICS_RATE,newrate);

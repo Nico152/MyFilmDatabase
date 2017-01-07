@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MyDatabaseExample</string>
+    <string name="app_name">MyFilmDatabase</string>
     <string name="title_search_prota">SEARCH FILM BY PROTAGONIST</string>
     <string name="title_search_delete_name">DELETE FILM BY NAME</string>
     <string name="hint_search_prota">Enter name of protagonist</string>

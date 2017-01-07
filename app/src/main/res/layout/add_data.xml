@@ -75,12 +75,13 @@
                 android:textStyle="normal|bold" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="12"
                 android:id="@+id/editCountry"
-                android:gravity="right" />
+                android:layout_weight="1"
+                android:textAlignment="viewEnd" />
         </TableRow>
 
         <TableRow
@@ -96,14 +97,15 @@
                 android:textStyle="normal|bold" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="12"
                 android:id="@+id/editYear"
                 android:singleLine="false"
                 android:selectAllOnFocus="false"
-                android:gravity="right" />
+                android:layout_weight="1"
+                android:textAlignment="viewEnd" />
         </TableRow>
 
         <TableRow
@@ -119,12 +121,14 @@
                 android:textStyle="normal|bold" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="12"
                 android:id="@+id/editProtagonist"
-                android:contentDescription="Name of the protagonist" />
+                android:contentDescription="Name of the protagonist"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd"/>
         </TableRow>
 
         <TableRow
@@ -144,7 +148,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="12"
-                android:id="@+id/editRate" />
+                android:id="@+id/editRate"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd"/>
 
         </TableRow>
     </TableLayout>

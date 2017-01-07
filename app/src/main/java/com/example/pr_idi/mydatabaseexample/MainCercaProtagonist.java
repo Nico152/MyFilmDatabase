@@ -62,11 +62,20 @@ public class MainCercaProtagonist extends ListActivity {
         List<Film> filmList = new ArrayList<>();
         ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) getListAdapter();
         adapter.clear();
+        char mayustominus = 'a'-'A';
         if(!name.isEmpty()){
             for(int i=0; i<values.size(); ++i){
-                if(name.compareTo(values.get(i).getProtagonist())==0){
-                    adapter.add(values.get(i));
+                boolean add = true;
+                String namevalue = values.get(i).getProtagonist();
+                for(int r = 0; r < name.length() && r < namevalue.length();++r){
+                    if(name.charAt(r)!=namevalue.charAt(r) &&
+                            (name.charAt(r)+mayustominus)!=namevalue.charAt(r) &&
+                            (name.charAt(r)-mayustominus)!=namevalue.charAt(r)){
+                        add = false;
+                        break;
+                    }
                 }
+                if(add && namevalue.length()>=name.length()) adapter.add(values.get(i));
             }
         }
         adapter.notifyDataSetChanged();
