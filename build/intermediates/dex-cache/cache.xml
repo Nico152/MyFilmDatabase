@@ -12,15 +12,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\Guillem\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-22.2.1_163d923799aa7d9c62568deed264852fd8e56820\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
         jumboMode="true"
         optimize="true"
@@ -39,6 +30,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Guillem\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-22.2.1_163d923799aa7d9c62568deed264852fd8e56820\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
-        sha1="bdb4d1cd02c55dedf86ba6402955dae64f30ddde">
+        sha1="00ee79cd45ea03155060d81e97f68f4308beef0c">
         <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cfe4c67aab4ecfa869959f606e7cd0defb01cc0c\classes.dex" />
     </item>
     <item
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
-        sha1="179bd6d558c126ed7d0437dabbb0145fd65d43e4">
+        sha1="fc9ea90b1f4f52bd484488feb622ddd21d74e6fd">
         <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_28a1e554c81008b2fbdbe5e990d384f789f3717f\classes.dex" />
     </item>
 
