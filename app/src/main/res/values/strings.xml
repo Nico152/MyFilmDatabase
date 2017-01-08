@@ -8,4 +8,11 @@
     <string name="label_button_search_year">Show all (by Year)</string>
     <string name="label_button_add_film">Add Film</string>
     <string name="label_button_remove_film">Remove Film</string>
+    <string name="pantalla_inicial_text">Des de la pantalla inicial es poden veure les pel·lícules identificades amb el títol i el seu director.
+Lliscant el dit suaument d esquerra a dreta, es pot veure el menú de l aplicació amb botons per accedir a la resta de funcionalitats.</string>
+    <string name="cerca_prota_string_text">En aquesta pantalla es poden cercar les pel·lícules pel nom de l actor o actriu protagonista.</string>
+    <string name="pelis_any_text">Aquesta pantalla mostra totes les pel·lícules a l aplicació ordenades de més recents a més antigues.</string>
+    <string name="afegir_peli_text">Aquesta pantalla permet afegir més pel·lícules a la base de dades de l aplicació introduint les dades.</string>
+    <string name="eliminar_peli_text">Aquesta pantalla permet eliminar de la base de dades una pel·lícula a partir del seu nom.</string>
+    
 </resources>
