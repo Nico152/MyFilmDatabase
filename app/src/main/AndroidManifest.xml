@@ -20,6 +20,7 @@
         <activity android:name=".MainCercaProtagonist"></activity>
         <activity android:name=".MainCercaEsborraTitol"></activity>
         <activity android:name=".ModifyFilmRate"></activity>
+        <activity android:name=".HelpActivity"></activity>
 
     </application>
 
