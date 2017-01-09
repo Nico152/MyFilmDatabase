@@ -34,7 +34,7 @@ public class MainCercaProtagonist extends ListActivity {
 
         values = filmDataProta.getAllFilms();
         filmsOfProtagonist = new ArrayList<>();
-        ArrayAdapter<Film> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, filmsOfProtagonist);
+        MainFilmAdapter adapter = new MainFilmAdapter(this, R.layout.recyclerview_item_row, (ArrayList) filmsOfProtagonist);
         setListAdapter(adapter);
 
         editText = (EditText) findViewById(R.id.editText);

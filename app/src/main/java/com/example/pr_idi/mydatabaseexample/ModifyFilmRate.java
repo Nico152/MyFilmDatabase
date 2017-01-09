@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by Nicola on 02/01/2017.
@@ -52,17 +53,17 @@ public class ModifyFilmRate extends Activity {
             int newrate = Integer.parseInt(editText.getText().toString());
             if(newrate >=0 && newrate <=10){
                 if(newrate == rate){
-                    subtitle.setText("It already has this rate!");
+                    Toast.makeText(getApplicationContext(),"It already has this rate!",Toast.LENGTH_LONG).show();
                 }
                 else{
                     filmData.changeFilmrate(id,newrate);
                     board.setText(title + " is rated with a " + newrate);
-                    subtitle.setText("Film rate changed");
+                    Toast.makeText(getApplicationContext(),"Film rate changed",Toast.LENGTH_LONG).show();
                     rate = newrate;
                 }
             }
             else{
-                subtitle.setText("The rate must be between 0 and 10!");
+                Toast.makeText(getApplicationContext(),"The rate must be between 0 and 10!",Toast.LENGTH_LONG).show();
             }
         }
     }

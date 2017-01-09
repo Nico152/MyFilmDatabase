@@ -10,7 +10,6 @@
             android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="40dp"
             />
     </RelativeLayout>
 
@@ -18,64 +17,70 @@
         android:id="@+id/nav_view"
         android:layout_width="210dp"
         android:layout_height="match_parent"
-        android:background="#0027ff"
+        android:background="#00add4"
         android:layout_gravity= "start"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
         android:dividerHeight="10dp">
 
 
-        <LinearLayout
-            android:orientation="vertical"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                />
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/button"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:maxHeight="20dp"
-                android:text="@string/label_button_search_prota"
-                />
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_launcher"
+                    />
 
-            <Button
-                android:text="@string/label_button_search_year"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button3" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:maxHeight="20dp"
+                    android:text="@string/label_button_search_prota"
+                    />
 
-            <Button
-                android:text="@string/label_button_add_film"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button4" />
+                <Button
+                    android:text="@string/label_button_search_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button3" />
 
-            <Button
-                android:text="@string/label_button_remove_film"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button5" />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button6"
-                android:text="HELP"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Versió 0.1"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Guillem Salvadó i Nicola Bafundi"
-                />
-        </LinearLayout>
+                <Button
+                    android:text="@string/label_button_add_film"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button4" />
+
+                <Button
+                    android:text="@string/label_button_remove_film"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button5" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button6"
+                    android:text="HELP"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Versió 0.1"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Guillem Salvadó i Nicola Bafundi"
+                    />
+
+            </LinearLayout>
+        </ScrollView>
 
     </FrameLayout>
 </android.support.v4.widget.DrawerLayout>

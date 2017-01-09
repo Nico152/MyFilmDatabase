@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_2"
+        android:icon="@mipmap/film_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -20,6 +20,7 @@
         <activity android:name=".MainCercaProtagonist"></activity>
         <activity android:name=".MainCercaEsborraTitol"></activity>
         <activity android:name=".ModifyFilmRate"></activity>
+        <activity android:name=".HelpActivity"></activity>
 
     </application>
 
