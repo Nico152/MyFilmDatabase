@@ -9,12 +9,15 @@ import java.util.Random;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,6 +26,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends ListActivity {
     private FilmData filmData;
@@ -41,7 +45,7 @@ public class MainActivity extends ListActivity {
 
         getData(); //Ara tenim les pelicules ordenades per titol
 
-        listView = getListView();
+        /*listView = getListView();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -53,7 +57,7 @@ public class MainActivity extends ListActivity {
                 startActivity(intent);
 
             }
-        });
+        });*/
 
         //Buttons:
 
@@ -95,6 +99,69 @@ public class MainActivity extends ListActivity {
                 startActivity(intent);
             }
         });
+
+
+        //ListView lv1=getListView();
+        //registerForContextMenu(lv1);
+        ListView lv1 = getListView();
+        lv1.setOnCreateContextMenuListener(this);
+
+
+
+
+
+
+        ///////////////////////////////////////
+        ///////////////////////////////////////
+
+
+        //ListView listView = getListView();
+        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id)
+            {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertDialogBuilder.setTitle("Edit rate");
+
+                alertDialogBuilder
+                        .setMessage("Do you want to edit the critics rate?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes",new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog,int id)
+                            {
+                                Film film = adapter.getItem(position);
+                                Intent intent = new Intent(MainActivity.this,ModifyFilmRate.class);
+                                intent.putExtra("FILM_ID",film.getId());
+                                intent.putExtra("FILM_TITLE",film.getTitle());
+                                intent.putExtra("FILM_RATE",film.getCritics_rate());
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("No",new DialogInterface.OnClickListener()
+                        {
+                            public void onClick(DialogInterface dialog,int id)
+                            {
+
+                                dialog.cancel();
+                            }
+                        });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+
+            }
+        });
+
+
+
+
+        ///////////////////////////////////////
+        ///////////////////////////////////////
+
+
+
+
     }
     // Will be called via the onClick attribute
     // of the buttons in main.xml
@@ -146,5 +213,48 @@ public class MainActivity extends ListActivity {
         adapter = new MainFilmAdapter(this, R.layout.recyclerview_item_row,(ArrayList)values);
         setListAdapter(adapter);
     }
+
+
+    /////////////////
+    ////CONTEXT MENU:
+    /////////////////
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.setHeaderTitle("Select action:");
+        menu.add(0, v.getId(), 0, "Edit rate");
+        menu.add(0, v.getId(), 0, "Delete film");
+    }
+
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item){
+
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int position = info.position;
+
+        if(item.getTitle()=="Edit rate"){
+            Film film = adapter.getItem(position);
+            Intent intent = new Intent(MainActivity.this,ModifyFilmRate.class);
+            intent.putExtra("FILM_ID",film.getId());
+            intent.putExtra("FILM_TITLE",film.getTitle());
+            intent.putExtra("FILM_RATE",film.getCritics_rate());
+            startActivity(intent);
+        }
+        else if(item.getTitle()=="Delete film"){
+            Film film = values.get(position);
+            filmData.deleteFilm(film);
+            values.remove(position);
+            Toast.makeText(getApplicationContext(),"Film deleted successfully.",Toast.LENGTH_LONG).show();
+            adapter.notifyDataSetChanged();
+        }else{
+            return false;
+        }
+        return true;
+    }
+
+
 
 }

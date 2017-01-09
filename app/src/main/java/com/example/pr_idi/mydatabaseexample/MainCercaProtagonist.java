@@ -1,13 +1,19 @@
 package com.example.pr_idi.mydatabaseexample;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +29,7 @@ public class MainCercaProtagonist extends ListActivity {
 
     private List<Film> values;
     private List<Film> filmsOfProtagonist;
+    //private MainFilmAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +62,10 @@ public class MainCercaProtagonist extends ListActivity {
                 setFilmsOfProtagonist(name);
             }
         });
+
+
+        ListView lv1 = getListView();
+        lv1.setOnCreateContextMenuListener(this);
 
     }
 
@@ -92,4 +103,49 @@ public class MainCercaProtagonist extends ListActivity {
         filmDataProta.close();
         super.onPause();
     }
+
+
+
+    /////////////////
+    ////CONTEXT MENU:
+    /////////////////
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.setHeaderTitle("Select action:");
+        menu.add(0, v.getId(), 0, "Edit rate");
+        menu.add(0, v.getId(), 0, "Delete film");
+    }
+
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item){
+
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int position = info.position;
+
+        if(item.getTitle()=="Edit rate"){
+            Film film = filmsOfProtagonist.get(position);
+            Intent intent = new Intent(MainCercaProtagonist.this,ModifyFilmRate.class);
+            intent.putExtra("FILM_ID",film.getId());
+            intent.putExtra("FILM_TITLE",film.getTitle());
+            intent.putExtra("FILM_RATE",film.getCritics_rate());
+            startActivity(intent);
+        }
+        else if(item.getTitle()=="Delete film"){
+            Film film = filmsOfProtagonist.get(position);
+            filmDataProta.deleteFilm(film);
+            filmsOfProtagonist.remove(position);
+            Toast.makeText(getApplicationContext(),"Film deleted successfully.",Toast.LENGTH_LONG).show();
+            ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) getListAdapter();
+            adapter.notifyDataSetChanged();
+        }else{
+            return false;
+        }
+        return true;
+    }
+
+
 }

@@ -11,7 +11,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class LlistaActivity extends AppCompatActivity {
@@ -43,6 +48,11 @@ public class LlistaActivity extends AppCompatActivity {
         RAdapter = new RecyclerAdapter(llista);
         RView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         RView.setAdapter(RAdapter);
+
+
+        //ListView lv1 = getListView();
+        //RView.setOnCreateContextMenuListener(this);
+        //RView.setOnLongClickListener(RView);
 
 
     }
@@ -93,6 +103,49 @@ public class LlistaActivity extends AppCompatActivity {
 
 
         System.out.println("HE VUELTO");
+    }
+
+
+
+
+    /////////////////
+    ////CONTEXT MENU:
+    /////////////////
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo)
+    {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.setHeaderTitle("Select action:");
+        menu.add(0, v.getId(), 0, "Edit rate");
+        menu.add(0, v.getId(), 0, "Delete film");
+    }
+
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item){
+
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        int position = info.position;
+
+        if(item.getTitle()=="Edit rate"){
+            Film film = llista.get(position);
+            Intent intent = new Intent(LlistaActivity.this,ModifyFilmRate.class);
+            intent.putExtra("FILM_ID",film.getId());
+            intent.putExtra("FILM_TITLE",film.getTitle());
+            intent.putExtra("FILM_RATE",film.getCritics_rate());
+            startActivity(intent);
+        }
+        else if(item.getTitle()=="Delete film"){
+            Film film = llista.get(position);
+            filmData.deleteFilm(film);
+            llista.remove(position);
+            Toast.makeText(getApplicationContext(),"Film deleted successfully.",Toast.LENGTH_LONG).show();
+            RAdapter.notifyDataSetChanged();
+        }else{
+            return false;
+        }
+        return true;
     }
 
 }
