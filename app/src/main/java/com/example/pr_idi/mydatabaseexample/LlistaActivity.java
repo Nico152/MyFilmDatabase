@@ -44,6 +44,7 @@ public class LlistaActivity extends AppCompatActivity {
         RView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         RView.setAdapter(RAdapter);
 
+
     }
 
     // Will be called via the onClick attribute

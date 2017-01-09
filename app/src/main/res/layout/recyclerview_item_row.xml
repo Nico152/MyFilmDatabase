@@ -8,20 +8,23 @@
     android:paddingRight="16dp"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    android:clickable="true"
+    android:clickable="false"
     android:background="?android:attr/selectableItemBackground"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:focusableInTouchMode="true">
 
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="false">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:focusable="false">
 
             <TextView
                 android:id="@+id/title"
@@ -32,7 +35,8 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="viewStart"
                 android:layout_weight="1"
-                android:text="Title" />
+                android:text="Title"
+                android:focusable="false"/>
 
             <TextView
                 android:id="@+id/year"
@@ -42,20 +46,23 @@
                 android:layout_weight="1"
                 android:textStyle="normal|bold"
                 android:textAlignment="viewEnd"
-                android:text="1994" />
+                android:text="1994"
+                android:focusable="false"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:focusable="false">
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/director"
-                android:layout_centerHorizontal="true">
+                android:layout_centerHorizontal="true"
+                android:focusable="false">
 
                 <TextView
                     android:text="Director: "
@@ -64,7 +71,8 @@
                     android:layout_weight="1"
                     android:textStyle="normal|bold"
                     android:textAlignment="viewStart"
-                    android:layout_width="match_parent" />
+                    android:layout_width="match_parent"
+                    android:focusable="false"/>
 
                 <TextView
                     android:id="@+id/director"
@@ -73,7 +81,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Alfred Hitchcock"
-                    android:textAlignment="viewStart" />
+                    android:textAlignment="viewStart"
+                    android:focusable="false"/>
 
             </LinearLayout>
 
@@ -84,20 +93,23 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textAlignment="viewEnd"
-                android:text="USA" />
+                android:text="USA"
+                android:focusable="false"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:focusable="false">
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:focusable="false">
 
                 <TextView
                     android:text="Protagonist: "
@@ -105,7 +117,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/protagonist_desc"
                     android:textStyle="normal|bold"
-                    android:textAlignment="viewStart" />
+                    android:textAlignment="viewStart"
+                    android:focusable="false"/>
 
                 <TextView
                     android:id="@+id/protagonist"
@@ -114,14 +127,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1.37"
                     android:textAlignment="viewStart"
-                    android:text="Default Actor" />
+                    android:text="Default Actor"
+                    android:focusable="false"/>
             </LinearLayout>
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:focusable="false">
 
                 <TextView
                     android:id="@+id/critics_rate"
@@ -130,14 +145,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAlignment="viewEnd"
-                    android:text="4" />
+                    android:text="4"
+                    android:focusable="false"/>
 
                 <TextView
                     android:text="/10"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/rate_descr"
-                    android:textAlignment="viewEnd" />
+                    android:textAlignment="viewEnd"
+                    android:focusable="false"/>
             </LinearLayout>
 
         </LinearLayout>

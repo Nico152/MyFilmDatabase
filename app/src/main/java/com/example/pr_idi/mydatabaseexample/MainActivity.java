@@ -1,6 +1,7 @@
 package com.example.pr_idi.mydatabaseexample;
 
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -26,8 +27,9 @@ import android.widget.ListView;
 public class MainActivity extends ListActivity {
     private FilmData filmData;
 
-    private ArrayAdapter<Film> adapter;
+    private MainFilmAdapter adapter;
     List<Film> values;
+    ListView listView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class MainActivity extends ListActivity {
 
         getData(); //Ara tenim les pelicules ordenades per titol
 
-        ListView listView = getListView();
+        listView = getListView();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -141,7 +143,7 @@ public class MainActivity extends ListActivity {
             }
         };
         Collections.sort(values,cmp);
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, values);
+        adapter = new MainFilmAdapter(this, R.layout.recyclerview_item_row,(ArrayList)values);
         setListAdapter(adapter);
     }
 
