@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="#12166c"
+        android:text="Guia d'ús"
+        android:id="@id/title"
+        />
+    <ScrollView
+        android:layout_column="0"
+        android:layout_row="1">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Pantalla inicial"
+                android:textColor="#12166c"
+                android:layout_column="0"
+                android:layout_row="1"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pantalla_inicial_text"
+                android:layout_column="0"
+                android:layout_row="2"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Cerca de pel·lícules per protagonista"
+                android:textColor="#12166c"
+                android:layout_column="0"
+                android:layout_row="3"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cerca_prota_string_text"
+                android:layout_column="0"
+                android:layout_row="4"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#12166c"
+                android:text="Pel·lícules per any d'estrena"
+                android:layout_column="0"
+                android:layout_row="5"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pelis_any_text"
+                android:layout_column="0"
+                android:layout_row="6"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#12166c"
+                android:text="Afegir pel·lícula"
+                android:layout_column="0"
+                android:layout_row="7"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/afegir_peli_text"
+                android:layout_column="0"
+                android:layout_row="8"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="#12166c"
+                android:text="Eliminar pel·lícula"
+                android:layout_column="0"
+                android:layout_row="9"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/eliminar_peli_text"
+                android:layout_column="0"
+                android:layout_row="10"
+                />
+        </GridLayout>
+    </ScrollView>
+</GridLayout>
