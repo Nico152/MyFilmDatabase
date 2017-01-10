@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ContextMenu;
@@ -20,16 +21,17 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainCercaEsborraTitol extends ListActivity {
+public class MainCercaEsborraTitol extends AppCompatActivity {
     FilmData filmDataProta;
 
     EditText editText;
 
-    public static Button btn;
 
     private List<Film> values;
     private List<Film> filmsOfProtagonist;
-    private ArrayAdapter<Film> adapter;
+    private MainFilmAdapter adapter;
+
+    ListView lv1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,8 +43,7 @@ public class MainCercaEsborraTitol extends ListActivity {
 
         values = filmDataProta.getAllFilms();
         filmsOfProtagonist = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, filmsOfProtagonist);
-        setListAdapter(adapter);
+        adapter = new MainFilmAdapter(this, R.layout.recyclerview_item_row, (ArrayList)filmsOfProtagonist);
 
         editText = (EditText) findViewById(R.id.editText);
         editText.addTextChangedListener(new TextWatcher() {
@@ -59,19 +60,18 @@ public class MainCercaEsborraTitol extends ListActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 String name = s.toString();
-                setFilmsOfProtagonist(name);
+                setFilmsOfTitle(name);
             }
         });
 
-        ListView lv1=getListView();
+        lv1= (ListView) findViewById(R.id.list);
         registerForContextMenu(lv1);
-
+        lv1.setAdapter(adapter);
         ///////////////////////////////////////
         /////////////CONFIRM ALERT/////////////
         ///////////////////////////////////////
 
-        ListView listView = getListView();
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, final int position, long id)
         {
@@ -110,9 +110,8 @@ public class MainCercaEsborraTitol extends ListActivity {
         ///////////////////////////////////////
     }
 
-    public void setFilmsOfProtagonist(String name){
-        List<Film> filmList = new ArrayList<>();
-        ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) getListAdapter();
+    public void setFilmsOfTitle(String name){
+        ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) lv1.getAdapter();
         adapter.clear();
         char mayustominus = 'a'-'A';
         if(!name.isEmpty()){
@@ -136,6 +135,10 @@ public class MainCercaEsborraTitol extends ListActivity {
     @Override
     protected void onResume() {
         filmDataProta.open();
+        filmsOfProtagonist.clear();
+        values = filmDataProta.getAllFilms();
+        MainFilmAdapter adapter = new MainFilmAdapter(this, R.layout.recyclerview_item_row, (ArrayList) filmsOfProtagonist);
+        lv1.setAdapter(adapter);
         super.onResume();
     }
 

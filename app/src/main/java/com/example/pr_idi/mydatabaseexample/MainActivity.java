@@ -13,6 +13,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -28,12 +29,12 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends ListActivity {
+public class MainActivity extends AppCompatActivity {
     private FilmData filmData;
 
     private MainFilmAdapter adapter;
     List<Film> values;
-    ListView listView;
+    ListView lv1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,21 +44,9 @@ public class MainActivity extends ListActivity {
         filmData = new FilmData(this);
         filmData.open();
 
-        getData(); //Ara tenim les pelicules ordenades per titol
-
-        /*listView = getListView();
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Film film = adapter.getItem(position);
-                Intent intent = new Intent(MainActivity.this,ModifyFilmRate.class);
-                intent.putExtra("FILM_ID",film.getId());
-                intent.putExtra("FILM_TITLE",film.getTitle());
-                intent.putExtra("FILM_RATE",film.getCritics_rate());
-                startActivity(intent);
-
-            }
-        });*/
+        lv1 =(ListView)findViewById(R.id.list1);
+        lv1.setOnCreateContextMenuListener(this);
+        getData(); //Ara tenim les pel·licules ordenades per titol
 
         //Buttons:
 
@@ -100,22 +89,10 @@ public class MainActivity extends ListActivity {
             }
         });
 
-
-        //ListView lv1=getListView();
-        //registerForContextMenu(lv1);
-        ListView lv1 = getListView();
-        lv1.setOnCreateContextMenuListener(this);
-
-
-
-
-
-
         ///////////////////////////////////////
         ///////////////////////////////////////
 
 
-        //ListView listView = getListView();
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id)
@@ -163,30 +140,6 @@ public class MainActivity extends ListActivity {
 
 
     }
-    // Will be called via the onClick attribute
-    // of the buttons in main.xml
-    /*public void onClick(View view) {
-        @SuppressWarnings("unchecked")
-        ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) getListAdapter();
-        Film film;
-        switch (view.getId()) {
-            case R.id.add:
-                String[] newFilm = new String[] { "Blade Runner", "Ridley Scott", "Rocky Horror Picture Show", "Jim Sharman", "The Godfather", "Francis Ford Coppola", "Toy Story", "John Lasseter" };
-                int nextInt = new Random().nextInt(4);
-                // save the new film to the database
-                film = filmData.createFilm(newFilm[nextInt*2], newFilm[nextInt*2 + 1]);
-                adapter.add(film);
-                break;
-            case R.id.delete:
-                if (getListAdapter().getCount() > 0) {
-                    film = (Film) getListAdapter().getItem(0);
-                    filmData.deleteFilm(film);
-                    adapter.remove(film);
-                }
-                break;
-        }
-        adapter.notifyDataSetChanged();
-    }*/
 
     @Override
     protected void onResume() {
@@ -211,7 +164,7 @@ public class MainActivity extends ListActivity {
         };
         Collections.sort(values,cmp);
         adapter = new MainFilmAdapter(this, R.layout.recyclerview_item_row,(ArrayList)values);
-        setListAdapter(adapter);
+        lv1.setAdapter(adapter);
     }
 
 

@@ -1,11 +1,10 @@
 package com.example.pr_idi.mydatabaseexample;
 
-import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,18 +17,16 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Nicola on 02/01/2017.
- */
 
-public class MainCercaProtagonist extends ListActivity {
+public class MainCercaProtagonist extends AppCompatActivity {
     FilmData filmDataProta;
 
     EditText editText;
 
     private List<Film> values;
     private List<Film> filmsOfProtagonist;
-    //private MainFilmAdapter adapter;
+
+    private ListView lv1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +39,9 @@ public class MainCercaProtagonist extends ListActivity {
         values = filmDataProta.getAllFilms();
         filmsOfProtagonist = new ArrayList<>();
         MainFilmAdapter adapter = new MainFilmAdapter(this, R.layout.recyclerview_item_row, (ArrayList) filmsOfProtagonist);
-        setListAdapter(adapter);
+        lv1 = (ListView) findViewById(R.id.list);
+        lv1.setOnCreateContextMenuListener(this);
+        lv1.setAdapter(adapter);
 
         editText = (EditText) findViewById(R.id.editText);
         editText.addTextChangedListener(new TextWatcher() {
@@ -64,14 +63,12 @@ public class MainCercaProtagonist extends ListActivity {
         });
 
 
-        ListView lv1 = getListView();
-        lv1.setOnCreateContextMenuListener(this);
+
 
     }
 
     public void setFilmsOfProtagonist(String name){
-        List<Film> filmList = new ArrayList<>();
-        ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) getListAdapter();
+        ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) lv1.getAdapter();
         adapter.clear();
         char mayustominus = 'a'-'A';
         if(!name.isEmpty()){
@@ -95,6 +92,10 @@ public class MainCercaProtagonist extends ListActivity {
     @Override
     protected void onResume() {
         filmDataProta.open();
+        filmsOfProtagonist.clear();
+        values = filmDataProta.getAllFilms();
+        MainFilmAdapter adapter = new MainFilmAdapter(this, R.layout.recyclerview_item_row, (ArrayList) filmsOfProtagonist);
+        lv1.setAdapter(adapter);
         super.onResume();
     }
 
@@ -139,7 +140,7 @@ public class MainCercaProtagonist extends ListActivity {
             filmDataProta.deleteFilm(film);
             filmsOfProtagonist.remove(position);
             Toast.makeText(getApplicationContext(),"Film deleted successfully.",Toast.LENGTH_LONG).show();
-            ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) getListAdapter();
+            ArrayAdapter<Film> adapter = (ArrayAdapter<Film>) lv1.getAdapter();
             adapter.notifyDataSetChanged();
         }else{
             return false;
