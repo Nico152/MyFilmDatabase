@@ -1,15 +1,12 @@
 package com.example.pr_idi.mydatabaseexample;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,15 +15,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by Nicola on 02/01/2017.
- */
 
 public class MainCercaEsborraTitol extends ListActivity {
     FilmData filmDataProta;
@@ -74,11 +66,9 @@ public class MainCercaEsborraTitol extends ListActivity {
         ListView lv1=getListView();
         registerForContextMenu(lv1);
 
-
-
         ///////////////////////////////////////
+        /////////////CONFIRM ALERT/////////////
         ///////////////////////////////////////
-
 
         ListView listView = getListView();
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -95,8 +85,6 @@ public class MainCercaEsborraTitol extends ListActivity {
                     {
                         public void onClick(DialogInterface dialog,int id)
                         {
-                            //AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-                            //int position = info.position;
                             Film film = filmsOfProtagonist.get(position);
                             filmDataProta.deleteFilm(film);
                             filmsOfProtagonist.remove(position);
@@ -115,17 +103,11 @@ public class MainCercaEsborraTitol extends ListActivity {
 
                     AlertDialog alertDialog = alertDialogBuilder.create();
                     alertDialog.show();
-
         }
         });
 
-
-
-
         ///////////////////////////////////////
         ///////////////////////////////////////
-
-
     }
 
     public void setFilmsOfProtagonist(String name){

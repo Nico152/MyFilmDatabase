@@ -8,6 +8,7 @@
     <string name="label_button_search_year">Show all (by Year)</string>
     <string name="label_button_add_film">Add Film</string>
     <string name="label_button_remove_film">Remove Film</string>
+    <string name="label_button_help">Help</string>
     <string name="pantalla_inicial_text">Des de la pantalla inicial es poden veure les pel·lícules identificades amb les seves dades corresponents.\n
         Lliscant el dit suaument d\'esquerra a dreta, es pot veure el menú de l\'aplicació amb botons per accedir a la resta de funcionalitats.
         \nPrement una pel·lícula, es pot modificar la nota de la seva crítica.\nMantenint-la premuda uns segons mostra un menú en el qual es pot
@@ -19,5 +20,27 @@
     <string name="eliminar_peli_text">Aquesta pantalla permet eliminar de la base de dades una pel·lícula que existeix a partir del seu nom.
     \nEn premer un element de la llista apareixerà un missatge de confirmació d\'eliminació.\nEn mantenir premut un element durant uns segons,
     apareixerà un menú per triar si es vol esborrar o només modificar la nota amb l\'objectiu de facilitar la navegació.</string>
+    <string name="str_add_title">Title: </string>
+    <string name="str_add_director">Director: </string>
+    <string name="str_add_country">Country: </string>
+    <string name="str_add_year">Year: </string>
+    <string name="str_add_protagonist">Protagonist: </string>
+    <string name="str_add_rate">Critics Rate: </string>
+    <string name="hlp_title0">Guia d\'ús</string>
+    <string name="hlp_title1">Pantalla inicial</string>
+    <string name="hlp_title2">Cerca de pel·lícules per protagonista</string>
+    <string name="hlp_title3">Pel·lícules per any d\'estrena</string>
+    <string name="hlp_title4">Afegir pel·lícula</string>
+    <string name="hlp_title5">Eliminar pel·lícula</string>
+    <string name="str_change_rate1">Change rate!</string>
+    <string name="add_film_msg1">Don\'t leave empty values!</string>
+    <string name="add_film_msg2">The rate must be between 0 and 10!</string>
+    <string name="add_film_msg3">Film title already exists!</string>
+    <string name="add_film_msg4">Film added successfully.</string>
+    <string name="add_film_msg5">It already has this rate!</string>
+    <string name="add_film_msg6">Film rate changed successfully.</string>
+    <string name="add_film_msg7">is rated with a</string>
+    <string name="add_film_msg8">Enter a new rate between 0 and 10</string>
+
     
 </resources>

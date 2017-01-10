@@ -65,14 +65,15 @@
                 android:focusable="false">
 
                 <TextView
-                    android:text="Director: "
+                    android:text="@string/str_add_director"
                     android:layout_height="wrap_content"
                     android:id="@+id/director_descr"
                     android:layout_weight="1"
                     android:textStyle="normal|bold"
                     android:textAlignment="viewStart"
                     android:layout_width="match_parent"
-                    android:focusable="false"/>
+                    android:focusable="false"
+                    android:layout_marginRight="6dp" />
 
                 <TextView
                     android:id="@+id/director"
@@ -112,13 +113,14 @@
                 android:focusable="false">
 
                 <TextView
-                    android:text="Protagonist: "
+                    android:text="@string/str_add_protagonist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/protagonist_desc"
                     android:textStyle="normal|bold"
                     android:textAlignment="viewStart"
-                    android:focusable="false"/>
+                    android:focusable="false"
+                    android:layout_marginRight="6dp" />
 
                 <TextView
                     android:id="@+id/protagonist"

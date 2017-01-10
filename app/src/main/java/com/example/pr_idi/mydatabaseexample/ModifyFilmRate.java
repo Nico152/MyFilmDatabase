@@ -35,10 +35,10 @@ public class ModifyFilmRate extends Activity {
         rate = getIntent().getIntExtra("FILM_RATE",0);
 
         board = (TextView)findViewById(R.id.board);
-        board.setText(title + " is rated with a " + rate);
+        board.setText(title + "\n" + getString(R.string.add_film_msg7) + " " + rate);
 
         subtitle = (TextView)  findViewById(R.id.textView2);
-        subtitle.setText("Enter a new rate between 0 and 10");
+        subtitle.setText(R.string.add_film_msg8);
 
         filmData = new FilmData(this);
         filmData.open();
@@ -53,17 +53,17 @@ public class ModifyFilmRate extends Activity {
             int newrate = Integer.parseInt(editText.getText().toString());
             if(newrate >=0 && newrate <=10){
                 if(newrate == rate){
-                    Toast.makeText(getApplicationContext(),"It already has this rate!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),R.string.add_film_msg5,Toast.LENGTH_LONG).show();
                 }
                 else{
                     filmData.changeFilmrate(id,newrate);
-                    board.setText(title + " is rated with a " + newrate);
-                    Toast.makeText(getApplicationContext(),"Film rate changed",Toast.LENGTH_LONG).show();
+                    board.setText(title + "\n" + getString(R.string.add_film_msg7) + " " + newrate);
+                    Toast.makeText(getApplicationContext(),R.string.add_film_msg6,Toast.LENGTH_LONG).show();
                     rate = newrate;
                 }
             }
             else{
-                Toast.makeText(getApplicationContext(),"The rate must be between 0 and 10!",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),R.string.add_film_msg2,Toast.LENGTH_LONG).show();
             }
         }
     }

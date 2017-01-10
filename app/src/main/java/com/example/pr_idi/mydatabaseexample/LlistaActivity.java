@@ -15,7 +15,6 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.Toast;
 
 
@@ -48,36 +47,7 @@ public class LlistaActivity extends AppCompatActivity {
         RAdapter = new RecyclerAdapter(llista);
         RView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         RView.setAdapter(RAdapter);
-
-
-        //ListView lv1 = getListView();
-        //RView.setOnCreateContextMenuListener(this);
-        //RView.setOnLongClickListener(RView);
-
-
     }
-
-    // Will be called via the onClick attribute
-    // of the buttons in main.xml
-    /*public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.add:
-                System.out.println("CAMBIO DE PANTALLA");
-                Intent intent = new Intent(LlistaActivity.this, AddActivity.class);
-                startActivityForResult(intent,1);
-                break;
-            case R.id.delete:
-                Collections.sort(llista, new Comparator<Film>() {
-                    @Override
-                    public int compare(Film lhs, Film rhs) {
-                        return rhs.getYear() - lhs.getYear();
-                    }
-                });
-                break;
-        }
-    }
-*/
-
 
     @Override
     protected void onResume() {
@@ -100,13 +70,7 @@ public class LlistaActivity extends AppCompatActivity {
             llista.add(peli);
             RAdapter.notifyDataSetChanged();
         }
-
-
-        System.out.println("HE VUELTO");
     }
-
-
-
 
     /////////////////
     ////CONTEXT MENU:
@@ -120,7 +84,6 @@ public class LlistaActivity extends AppCompatActivity {
         menu.add(0, v.getId(), 0, "Edit rate");
         menu.add(0, v.getId(), 0, "Delete film");
     }
-
 
     @Override
     public boolean onContextItemSelected(MenuItem item){

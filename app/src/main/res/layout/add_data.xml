@@ -19,7 +19,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="Title"
+                android:text="@string/str_add_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/AddTitle"
@@ -34,7 +34,6 @@
                 android:ems="12"
                 android:id="@+id/editTitle"
                 android:textAlignment="viewEnd"
-                android:singleLine="false"
                 android:layout_weight="1" />
 
         </TableRow>
@@ -44,7 +43,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="Director"
+                android:text="@string/str_add_director"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/AddDirector"
@@ -67,7 +66,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="Country"
+                android:text="@string/str_add_country"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/AddCountry"
@@ -89,7 +88,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="Year"
+                android:text="@string/str_add_year"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/AddYear"
@@ -102,7 +101,6 @@
                 android:inputType="number"
                 android:ems="12"
                 android:id="@+id/editYear"
-                android:singleLine="false"
                 android:selectAllOnFocus="false"
                 android:layout_weight="1"
                 android:textAlignment="viewEnd" />
@@ -113,7 +111,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="Protagonist"
+                android:text="@string/str_add_protagonist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/AddProtagonist"
@@ -136,7 +134,7 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:text="Critics Rate"
+                android:text="@string/str_add_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/AddRate"
@@ -156,7 +154,7 @@
     </TableLayout>
 
     <Button
-        android:text="Add film"
+        android:text="@string/label_button_add_film"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/buttonAddFilm"

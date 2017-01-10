@@ -3,33 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\Guillem\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-22.2.1_163d923799aa7d9c62568deed264852fd8e56820\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-22.2.1_b8ad948e1fa6d5e28b4967bb7460f8f13ef267f8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="a0bdcce77c68117fcdcd7fdcdf29c29b982b1616">
-        <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cfe4c67aab4ecfa869959f606e7cd0defb01cc0c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -57,6 +30,33 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Guillem\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-22.2.1_163d923799aa7d9c62568deed264852fd8e56820\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-22.2.1_b8ad948e1fa6d5e28b4967bb7460f8f13ef267f8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="e6e240c6793415748677ba09527016282eb808bc">
+        <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_cfe4c67aab4ecfa869959f606e7cd0defb01cc0c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\exploded-aar\com.android.support\design\22.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -70,7 +70,7 @@
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
-        sha1="505d3c510bf06d1361471894bb5b83b73f475885">
+        sha1="996996ce445fb54dafbd435375071ae2033ec50b">
         <dex dex="C:\Users\Guillem\IDI\MyFilmDatabase\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_28a1e554c81008b2fbdbe5e990d384f789f3717f\classes.dex" />
     </item>
 
